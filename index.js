@@ -18,11 +18,11 @@ class App{
         this.app=express();
         this.envSetup();
         this.connectToDB().then(db => {
-        console.log(`db connected`)
+        logger.info(`db connected`)
         this.config();
         })
         .catch((err) => {
-        console.error(`Error while starting db ${err}`);
+        logger.error(`Error while starting db ${err}`);
     });
        
     }
@@ -65,9 +65,7 @@ class App{
           this.app.use(cors(corsOptions));
           this.app.set("view options", {layout: false});
           this.app.use(express.static(__dirname + '/public/'));
-          this.app.get('/', function(req, res){
-            res.render('/public/index.html');
-            });
+        
           this.app.use('/api',require('./router'));
           this.app.get('/**', (req, res) => {
             res.status(404);

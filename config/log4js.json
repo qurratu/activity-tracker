@@ -2,19 +2,19 @@
     "appenders": {
       "access": {
         "type": "dateFile",
-         "filename": "D:/dev/users/server/log/api.log",
+         "filename": "D:/dev/git/activity-tracker/log/api.log",
         "pattern": "-yyyy-MM-dd",
         "category": "http"
       },
       "app": {
         "type": "file",
-        "filename": "D:/dev/users/server/log/api.log",
+        "filename": "D:/dev/git/activity-tracker/log/api.log",
         "maxLogSize": 10485760,
         "numBackups": 3
       },
       "errorFile": {
         "type": "file",
-        "filename": "D:/dev/users/server/log/api.log"
+        "filename": "D:/dev/git/activity-tracker/log/api.log"
       },
       "errors": {
         "type": "logLevelFilter",

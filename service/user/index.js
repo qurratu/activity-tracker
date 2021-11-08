@@ -18,7 +18,7 @@ class User{
               resolve(user.toJSON());
           }
           else {
-            throw new Error("Invalid email or password");
+            reject({message:"Invalid email or password"});
           }
       });
        
@@ -28,9 +28,9 @@ class User{
     // Add User
     async addUser(data){
     return new Promise(async(resolve,reject)=>{
-
         if (await user.findOne({ email: data.email })) {
-          throw 'Username "' + user.email + '" is already taken';
+          reject({message:`Email ${data.email} is already taken`});
+          return;
       }
 
         data.password=md5(data.password).toString();
