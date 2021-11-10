@@ -8,8 +8,8 @@ const get=(req,res)=>{
 // Get
 const add=(req,res)=>{
     user.addUser(req.body).then((result)=>{
-        res.status(200).send(result);
-    }).catch(err=>{res.status(500).send(err);})
+        res.status(200).send({ success:true, data:result, message:"User successfully added" });
+    }).catch(err=>{res.status(500).send({ success:false, message:err });})
 }
 
 
